@@ -1,12 +1,35 @@
-# Secure Password Validator
+# 🔐 Secure Password Validator  
+**Have I Been Pwned (HIBP) Password Breach Checker — Python**
 
-## What I Did
-I built a Python tool to validate password strength based on common security criteria like length, uppercase and lowercase letters, numbers, and special characters.
+This project implements a secure, testable password validation tool using the **Have I Been Pwned (HIBP) Pwned Passwords API**.  
+It allows users to check whether a password has appeared in known data breaches **without ever sending the password itself over the network**.
 
-## Why I Did This Project
-This project was designed to enhance my understanding of basic cybersecurity principles and Python string manipulation while creating a practical tool that can be integrated into other applications.
+The implementation follows HIBP’s **k-anonymity model**, ensuring privacy while delivering reliable breach detection.
 
-## What I Accomplished
-- Developed a user-friendly password validation tool.
-- Applied Python programming concepts like regex and conditional logic.
-- Improved my understanding of security best practices.
+---
+
+## ⚙️ What This Tool Does
+
+- Accepts a password securely via terminal input
+- Hashes the password locally using **SHA-1**
+- Sends **only the first 5 characters** of the hash to the HIBP API
+- Compares returned hash suffixes locally
+- Reports how many times the password has appeared in known breaches
+- Never logs, prints, or transmits the plaintext password
+
+---
+
+## 🔒 Security & Privacy Design
+
+This tool follows best practices recommended by HIBP:
+
+- **K-anonymity**: only partial hashes are transmitted
+- **No plaintext passwords** are ever exposed
+- Uses `getpass` to prevent terminal echo
+- Adds API padding headers to reduce metadata leakage
+- Does not store passwords or hashes
+
+---
+
+## 🧱 Project Structure
+
