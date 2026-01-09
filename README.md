@@ -92,7 +92,7 @@ pytest -v
 
 ---
 
-## 📌 Example Output
+## 📌 Output
 
 **Compromised password**
 ```
